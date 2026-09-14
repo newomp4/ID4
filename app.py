@@ -297,7 +297,7 @@ def run_youtube_download(job_id: str, settings: dict[str, Any]) -> None:
                 "completed_at": time.time(),
             })
 
-    except Exception as e:  # noqa: BLE001 — we want to surface anything to UI
+    except Exception as e:  # noqa: BLE001, we want to surface anything to UI
         update_job(job_id, status="error", error=str(e))
 
 
@@ -324,7 +324,7 @@ def run_spotify_download(job_id: str, settings: dict[str, Any]) -> None:
         **settings,
         "format": "mp3",
         "url": f"ytsearch1:{spotify.search_query(meta)}",
-        # Don't let yt-dlp tag the file or embed thumbnails — we strip
+        # Don't let yt-dlp tag the file or embed thumbnails, we strip
         # everything and re-tag with Spotify's data afterward.
         "embed_thumbnail": False,
         "embed_metadata": False,
@@ -370,7 +370,7 @@ def run_spotify_download(job_id: str, settings: dict[str, Any]) -> None:
 
         append_history({
             "id": job_id,
-            "title": f"{artist} — {title}",
+            "title": f"{artist}, {title}",
             "uploader": artist,
             "thumbnail": meta.get("cover_url", ""),
             "filename": mp3_path.name,
@@ -454,7 +454,7 @@ def api_info():
     if not url:
         return jsonify({"error": "missing url"}), 400
 
-    # Spotify path — quick scrape of the SSR page.
+    # Spotify path, quick scrape of the SSR page.
     if spotify.is_spotify_url(url):
         try:
             m = spotify.fetch_track(url)

@@ -101,7 +101,7 @@ kbd {
 ::selection { background: var(--text); color: var(--bg); }
 
 /* ==========================================================================
-   Background aurora — three slow-drifting blobs, monochrome
+   Background aurora, three slow-drifting blobs, monochrome
    ========================================================================== */
 
 .bg-aurora {
@@ -214,35 +214,10 @@ kbd {
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 4px 0 24px;
+  justify-content: flex-end;
+  padding: 4px 0 8px;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-.brand-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 9px;
-  background: var(--accent);
-  color: var(--accent-fg);
-  transition: transform var(--t-spring);
-}
-.brand:hover .brand-mark {
-  transform: rotate(-8deg) scale(1.05);
-}
-.brand-name {
-  font-size: 14px;
-  letter-spacing: 0.06em;
-}
 
 .header-actions {
   display: flex;
@@ -305,23 +280,27 @@ kbd {
 
 .hero {
   text-align: center;
-  padding: 28px 0 28px;
+  padding: 8px 0 28px;
 }
 .hero-title {
-  margin: 0 0 8px;
-  font-size: 36px;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  background: linear-gradient(180deg, var(--text), color-mix(in srgb, var(--text) 65%, transparent));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-.hero-sub {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--text);
+}
+.hero-mark {
+  display: inline-flex;
   color: var(--text-muted);
-  font-size: 14.5px;
+  transition: color 220ms ease, transform 420ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.hero-title:hover .hero-mark {
+  color: var(--text);
+  transform: translateY(2px);
 }
 
 /* ==========================================================================
@@ -1074,26 +1053,11 @@ kbd {
    ========================================================================== */
 
 .empty-state {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 50px 20px 30px;
+  padding: 24px 0 8px;
   color: var(--text-dim);
   text-align: center;
 }
 .empty-state.is-hidden { display: none; }
-.empty-icon {
-  width: 56px;
-  height: 56px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-}
 .empty-state p {
   margin: 0;
   font-size: 13px;
@@ -1177,4 +1141,73 @@ kbd {
 }
 @keyframes toast-out {
   to { opacity: 0; transform: translateX(20px) scale(0.95); }
+}
+
+/* ==========================================================================
+   Motion. Everything here is a small reward for doing something, and all of
+   it stands down when the system asks for less movement.
+   ========================================================================== */
+
+/* The page settles in rather than appearing all at once. */
+@keyframes id4-rise {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero,
+  .url-card,
+  .jobs-card,
+  .history-card,
+  .empty-state,
+  .footer {
+    animation: id4-rise 520ms cubic-bezier(0.25, 1, 0.5, 1) backwards;
+  }
+  .hero { animation-delay: 40ms; }
+  .url-card { animation-delay: 90ms; }
+  .jobs-card,
+  .history-card,
+  .empty-state { animation-delay: 140ms; }
+  .footer { animation-delay: 190ms; }
+
+  /* A finished row arrives instead of blinking into the list. */
+  .jobs > li,
+  .history > li { animation: id4-rise 420ms cubic-bezier(0.25, 1, 0.5, 1) backwards; }
+
+  /* The chevron turns as the panel opens. */
+  .advanced .chev { transition: transform 280ms cubic-bezier(0.25, 1, 0.5, 1); }
+  .advanced[open] .chev { transform: rotate(180deg); }
+
+  /* Buttons take a press. */
+  .btn-primary,
+  .icon-btn,
+  .seg-btn,
+  .input-action { transition: background-color 180ms ease, color 180ms ease, border-color 180ms ease, transform 180ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .btn-primary:hover { transform: translateY(-1px); }
+  .btn-primary:active,
+  .icon-btn:active,
+  .seg-btn:active,
+  .input-action:active { transform: scale(0.96); }
+
+  /* The download mark nudges down when the button is ready to be pressed. */
+  .btn-primary .btn-icon { transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .btn-primary:hover .btn-icon { transform: translateY(2px); }
+
+  /* The theme icons cross over rather than cutting. */
+  .icon-btn .icon-sun,
+  .icon-btn .icon-moon { transition: opacity 240ms ease, transform 360ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .icon-btn:hover .icon-sun,
+  .icon-btn:hover .icon-moon { transform: rotate(24deg); }
+
+  /* The link mark reacts when a source is recognised. */
+  .url-prefix svg { transition: opacity 200ms ease, transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1); }
+  .url-row:focus-within .url-prefix svg { transform: scale(1.08); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

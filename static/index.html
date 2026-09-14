@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://rsms.me/" />
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
     <link rel="stylesheet" href="/style.css" />
-    <link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23fafafa'/><path d='M11 10l10 6-10 6z' fill='%230a0a0a'/></svg>" />
+    <link rel="icon" href="/favicon.svg" />
   </head>
   <body>
     <div class="bg-aurora" aria-hidden="true">
@@ -18,44 +18,40 @@
 
     <div class="drop-overlay" id="dropOverlay" aria-hidden="true">
       <div class="drop-card">
-        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+        <svg viewBox="0 0 24 24" width="32" height="32" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 2H12V7C12 8.65685 13.3431 10 15 10H20V19C20 20.6569 18.6569 22 17 22H7C5.34315 22 4 20.6569 4 19V5C4 3.34315 5.34315 2 7 2ZM15.2071 17.2071L12.7071 19.7071C12.3166 20.0976 11.6834 20.0976 11.2929 19.7071L8.79289 17.2071C8.40237 16.8166 8.40237 16.1834 8.79289 15.7929C9.18342 15.4024 9.81658 15.4024 10.2071 15.7929L11 16.5858V13C11 12.4477 11.4477 12 12 12C12.5523 12 13 12.4477 13 13V16.5858L13.7929 15.7929C14.1834 15.4024 14.8166 15.4024 15.2071 15.7929C15.5976 16.1834 15.5976 16.8166 15.2071 17.2071Z" fill="currentColor"/><path d="M14 2.58579L19.4142 8H15C14.4477 8 14 7.55228 14 7V2.58579Z" fill="currentColor"/></svg>
         <span>Drop link to download</span>
       </div>
     </div>
 
     <main class="app">
       <header class="header">
-        <div class="brand">
-          <span class="brand-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 7l9 5-9 5z" fill="currentColor"/></svg>
-          </span>
-          <span class="brand-name">ID4</span>
-        </div>
         <div class="header-actions">
           <button class="kbd-hint" id="cmdkBtn" title="Focus URL bar">
             <kbd>⌘</kbd><kbd>K</kbd>
           </button>
           <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
-            <svg class="icon-sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-            <svg class="icon-moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg class="icon-sun" viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><path d="M13 2C13 1.44772 12.5523 1 12 1C11.4477 1 11 1.44772 11 2V3C11 3.55228 11.4477 4 12 4C12.5523 4 13 3.55228 13 3V2Z" fill="currentColor"/><path d="M13 21C13 20.4477 12.5523 20 12 20C11.4477 20 11 20.4477 11 21V22C11 22.5523 11.4477 23 12 23C12.5523 23 13 22.5523 13 22V21Z" fill="currentColor"/><path d="M19.777 4.22295C20.1675 4.61347 20.1675 5.24664 19.777 5.63716L19.0669 6.34716C18.6764 6.73768 18.0433 6.73768 17.6527 6.34716C17.2622 5.95664 17.2622 5.32347 17.6527 4.93295L18.3627 4.22295C18.7533 3.83242 19.3864 3.83242 19.777 4.22295Z" fill="currentColor"/><path d="M6.34726 19.0671C6.73779 18.6766 6.73779 18.0434 6.34726 17.6529C5.95674 17.2624 5.32357 17.2624 4.93305 17.6529L4.22305 18.3629C3.83253 18.7534 3.83253 19.3866 4.22305 19.7771C4.61357 20.1676 5.24674 20.1676 5.63726 19.7771L6.34726 19.0671Z" fill="currentColor"/><path d="M20 12C20 11.4477 20.4477 11 21 11H22C22.5523 11 23 11.4477 23 12C23 12.5523 22.5523 13 22 13H21C20.4477 13 20 12.5523 20 12Z" fill="currentColor"/><path d="M2 11C1.44772 11 1 11.4477 1 12C1 12.5523 1.44772 13 2 13H3C3.55228 13 4 12.5523 4 12C4 11.4477 3.55228 11 3 11H2Z" fill="currentColor"/><path d="M17.6527 17.6529C18.0433 17.2624 18.6764 17.2624 19.0669 17.6529L19.777 18.3629C20.1675 18.7534 20.1675 19.3866 19.777 19.7771C19.3864 20.1676 18.7533 20.1676 18.3627 19.7771L17.6527 19.0671C17.2622 18.6766 17.2622 18.0434 17.6527 17.6529Z" fill="currentColor"/><path d="M5.63726 4.22295C5.24674 3.83242 4.61357 3.83242 4.22305 4.22295C3.83253 4.61347 3.83253 5.24664 4.22305 5.63716L4.93305 6.34716C5.32357 6.73768 5.95674 6.73768 6.34726 6.34716C6.73779 5.95664 6.73779 5.32347 6.34726 4.93295L5.63726 4.22295Z" fill="currentColor"/><path d="M7.75736 7.75736C10.1005 5.41421 13.8995 5.41421 16.2426 7.75736C18.5858 10.1005 18.5858 13.8995 16.2426 16.2426C13.8995 18.5858 10.1005 18.5858 7.75736 16.2426C5.41421 13.8995 5.41421 10.1005 7.75736 7.75736Z" fill="currentColor"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><path d="M12.0517 3.59971C12.2712 3.28123 12.2873 2.86472 12.0931 2.53021C11.8989 2.19569 11.5292 2.00315 11.1438 2.03581C6.0214 2.46985 2 6.76372 2 11.9979C2 17.5197 6.47632 21.996 11.9981 21.996C17.2324 21.996 21.5264 17.9745 21.9602 12.8519C21.9929 12.4664 21.8003 12.0968 21.4658 11.9026C21.1313 11.7084 20.7148 11.7246 20.3963 11.9441C19.4302 12.61 18.2602 12.9998 16.9961 12.9998C13.6824 12.9998 10.9961 10.3135 10.9961 6.99976C10.9961 5.73577 11.3858 4.56582 12.0517 3.59971Z" fill="currentColor"/></svg>
           </button>
           <a class="icon-btn" href="https://github.com/newomp4/ID4" target="_blank" rel="noopener" aria-label="Source on GitHub" title="Source">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 .5C5.65.5.5 5.65.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.69 1.25 3.34.95.1-.74.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.18-1.49 3.14-1.18 3.14-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.13v3.16c0 .31.21.67.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><path d="M12 1.95068C17.525 1.95068 22 6.42568 22 11.9507C21.9995 14.0459 21.3419 16.0883 20.1198 17.7902C18.8977 19.4922 17.1727 20.768 15.1875 21.4382C14.6875 21.5382 14.5 21.2257 14.5 20.9632C14.5 20.6257 14.5125 19.5507 14.5125 18.2132C14.5125 17.2757 14.2 16.6757 13.8375 16.3632C16.0625 16.1132 18.4 15.2632 18.4 11.4257C18.4 10.3257 18.0125 9.43818 17.375 8.73818C17.475 8.48818 17.825 7.46318 17.275 6.08818C17.275 6.08818 16.4375 5.81318 14.525 7.11318C13.725 6.88818 12.875 6.77568 12.025 6.77568C11.175 6.77568 10.325 6.88818 9.525 7.11318C7.6125 5.82568 6.775 6.08818 6.775 6.08818C6.225 7.46318 6.575 8.48818 6.675 8.73818C6.0375 9.43818 5.65 10.3382 5.65 11.4257C5.65 15.2507 7.975 16.1132 10.2 16.3632C9.9125 16.6132 9.65 17.0507 9.5625 17.7007C8.9875 17.9632 7.55 18.3882 6.65 16.8757C6.4625 16.5757 5.9 15.8382 5.1125 15.8507C4.275 15.8632 4.775 16.3257 5.125 16.5132C5.55 16.7507 6.0375 17.6382 6.15 17.9257C6.35 18.4882 7 19.5632 9.5125 19.1007C9.5125 19.9382 9.525 20.7257 9.525 20.9632C9.525 21.2257 9.3375 21.5257 8.8375 21.4382C6.8458 20.7752 5.11342 19.502 3.88611 17.799C2.65881 16.096 1.9989 14.0498 2 11.9507C2 6.42568 6.475 1.95068 12 1.95068Z" fill="currentColor"/></svg>
           </a>
         </div>
       </header>
 
       <section class="hero">
-        <h1 class="hero-title">Pull video, audio, anything.</h1>
-        <p class="hero-sub">YouTube and Spotify links. Drop them anywhere on this window.</p>
+        <h1 class="hero-title">
+          <span class="hero-mark" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 2H12V7C12 8.65685 13.3431 10 15 10H20V19C20 20.6569 18.6569 22 17 22H7C5.34315 22 4 20.6569 4 19V5C4 3.34315 5.34315 2 7 2ZM15.2071 17.2071L12.7071 19.7071C12.3166 20.0976 11.6834 20.0976 11.2929 19.7071L8.79289 17.2071C8.40237 16.8166 8.40237 16.1834 8.79289 15.7929C9.18342 15.4024 9.81658 15.4024 10.2071 15.7929L11 16.5858V13C11 12.4477 11.4477 12 12 12C12.5523 12 13 12.4477 13 13V16.5858L13.7929 15.7929C14.1834 15.4024 14.8166 15.4024 15.2071 15.7929C15.5976 16.1834 15.5976 16.8166 15.2071 17.2071Z" fill="currentColor"/><path d="M14 2.58579L19.4142 8H15C14.4477 8 14 7.55228 14 7V2.58579Z" fill="currentColor"/></svg></span>
+          ID4
+        </h1>
       </section>
 
       <section class="card url-card">
         <div class="url-row">
           <span class="url-prefix" id="urlPrefix" data-source="">
-            <svg class="icon-link" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.41 1.41"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.41-1.41"/></svg>
-            <svg class="icon-yt" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2C2 8.8 2 12 2 12s0 3.2.4 4.8a2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8C22 15.2 22 12 22 12s0-3.2-.4-4.8zM10 15V9l5 3-5 3z"/></svg>
-            <svg class="icon-sp" viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm4.5 14.4a.6.6 0 0 1-.86.2c-2.36-1.44-5.32-1.76-8.82-.96a.62.62 0 1 1-.28-1.22c3.82-.86 7.1-.5 9.74 1.12a.62.62 0 0 1 .22.86zM17.7 14a.78.78 0 0 1-1.06.26c-2.7-1.66-6.82-2.14-10.02-1.18a.78.78 0 1 1-.46-1.5c3.66-1.1 8.18-.56 11.28 1.34a.78.78 0 0 1 .26 1.08zm.1-2.62c-3.24-1.92-8.6-2.1-11.7-1.16a.94.94 0 1 1-.54-1.8c3.56-1.08 9.46-.86 13.2 1.36a.94.94 0 1 1-.96 1.6z"/></svg>
+            <svg class="icon-link" viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.3787 3.20681C13.5503 2.03523 15.4497 2.03523 16.6213 3.2068L20.7929 7.37838C21.9645 8.54995 21.9645 10.4494 20.7929 11.621L18.7071 13.7068C18.3166 14.0973 17.6834 14.0973 17.2929 13.7068C16.9024 13.3163 16.9024 12.6831 17.2929 12.2926L19.3787 10.2068C19.7692 9.81628 19.7692 9.18312 19.3787 8.79259L15.2071 4.62102C14.8166 4.23049 14.1834 4.23049 13.7929 4.62102L11.7071 6.70681C11.3166 7.09733 10.6834 7.09733 10.2929 6.70681C9.90237 6.31628 9.90237 5.68312 10.2929 5.29259L12.3787 3.20681ZM15.7071 8.29259C16.0976 8.68312 16.0976 9.31628 15.7071 9.70681L9.70711 15.7068C9.31659 16.0973 8.68342 16.0973 8.2929 15.7068C7.90237 15.3163 7.90237 14.6831 8.2929 14.2926L14.2929 8.29259C14.6834 7.90207 15.3166 7.90207 15.7071 8.29259ZM6.70711 10.2926C7.09763 10.6831 7.09763 11.3163 6.70711 11.7068L4.62132 13.7926C4.2308 14.1831 4.2308 14.8163 4.62132 15.2068L3.91788 15.9102L4.62132 15.2068L8.7929 19.3784C9.18342 19.7689 9.81658 19.7689 10.2071 19.3784L12.2929 17.2926C12.6834 16.9021 13.3166 16.9021 13.7071 17.2926C14.0976 17.6831 14.0976 18.3163 13.7071 18.7068L11.6213 20.7926C10.4498 21.9642 8.55026 21.9642 7.37868 20.7926L3.20711 16.621C2.03554 15.4494 2.03554 13.55 3.20711 12.3784L5.2929 10.2926C5.68342 9.90207 6.31659 9.90207 6.70711 10.2926Z" fill="currentColor"/></svg>
+            <svg class="icon-yt" viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.2043 4.00776C21.1084 4.28763 21.8189 5.10925 22.0609 6.15475C22.4982 8.04786 22.5 12 22.5 12C22.5 12 22.5 15.9522 22.0609 17.8453C21.8189 18.8908 21.1084 19.7124 20.2043 19.9922C18.5673 20.5 12 20.5 12 20.5C12 20.5 5.43274 20.5 3.79568 19.9922C2.89159 19.7124 2.1811 18.8908 1.93908 17.8453C1.5 15.9522 1.5 12 1.5 12C1.5 12 1.5 8.04786 1.93908 6.15475C2.1811 5.10925 2.89159 4.28763 3.79568 4.00776C5.43274 3.5 12 3.5 12 3.5C12 3.5 18.5673 3.5 20.2043 4.00776ZM15.5134 12.0003L9.79785 15.2999V8.70065L15.5134 12.0003Z" fill="currentColor"/></svg>
+            <svg class="icon-sp" viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><path d="M12.0002 2C6.47735 2 2 6.47723 2 12.0001C2 17.5231 6.47735 22 12.0002 22C17.5236 22 22.0005 17.5231 22.0005 12.0001C22.0005 6.47759 17.5236 2.00048 12.0001 2.00048L12.0002 2ZM16.5862 16.423C16.4071 16.7167 16.0226 16.8099 15.7288 16.6295C13.3809 15.1954 10.4251 14.8706 6.94414 15.6659C6.60871 15.7423 6.27434 15.5321 6.19792 15.1966C6.12113 14.861 6.33047 14.5266 6.66674 14.4502C10.4761 13.5796 13.7436 13.9546 16.3796 15.5656C16.6734 15.7459 16.7665 16.1292 16.5862 16.423ZM17.8102 13.6997C17.5845 14.0669 17.1045 14.1827 16.7379 13.957C14.0498 12.3044 9.95233 11.826 6.7729 12.7911C6.36056 12.9156 5.92506 12.6832 5.79991 12.2716C5.67572 11.8593 5.90822 11.4246 6.31984 11.2992C9.95161 10.1973 14.4666 10.731 17.5535 12.6279C17.9201 12.8536 18.0359 13.3336 17.8102 13.6997ZM17.9153 10.8643C14.6923 8.94996 9.37472 8.77394 6.29751 9.70789C5.80337 9.85775 5.28081 9.5788 5.13106 9.08466C4.98132 8.59028 5.26003 8.06808 5.75453 7.91785C9.28695 6.84551 15.1592 7.05269 18.8699 9.25554C19.3153 9.51933 19.461 10.0934 19.1971 10.5372C18.9344 10.9817 18.3588 11.1282 17.9158 10.8643H17.9153Z" fill="currentColor"/></svg>
           </span>
           <input
             id="urlInput"
@@ -66,10 +62,10 @@
             autofocus
           />
           <button class="input-action" id="clearBtn" aria-label="Clear" title="Clear (Esc)" hidden>
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6l-12 12"/></svg>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" aria-hidden="true"><path d="M16.793 5.79289C17.1835 5.40237 17.8165 5.40237 18.207 5.79289C18.5975 6.18342 18.5975 6.81643 18.207 7.20696L13.414 11.9999L18.207 16.7929C18.5975 17.1834 18.5975 17.8164 18.207 18.207C17.8165 18.5975 17.1835 18.5975 16.793 18.207L12 13.414L7.20702 18.207C6.81649 18.5975 6.18348 18.5975 5.79295 18.207C5.40243 17.8164 5.40243 17.1834 5.79295 16.7929L10.5859 11.9999L5.79295 7.20696C5.40243 6.81643 5.40243 6.18342 5.79295 5.79289C6.18348 5.40237 6.81649 5.40237 7.20702 5.79289L12 10.5859L16.793 5.79289Z" fill="currentColor"/></svg>
           </button>
           <button class="input-action" id="pasteBtn" aria-label="Paste" title="Paste from clipboard">
-            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></svg>
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.17071 4C8.58254 2.83481 9.69378 2 11 2H13C14.3062 2 15.4175 2.83481 15.8293 4H17C18.6569 4 20 5.34315 20 7V19C20 20.6569 18.6569 22 17 22H7C5.34315 22 4 20.6569 4 19V7C4 5.34315 5.34315 4 7 4H8.17071ZM10 5V6H14V5C14 4.44772 13.5523 4 13 4H11C10.4477 4 10 4.44772 10 5Z" fill="currentColor"/></svg>
           </button>
         </div>
 
@@ -78,18 +74,18 @@
         </div>
 
         <div class="notice" id="spotifyNotice" hidden>
-          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 8v5"/><circle cx="12" cy="16.5" r=".8" fill="currentColor"/></svg>
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" aria-hidden="true"><path d="M11 9.5C12.1046 9.5 13 10.3954 13 11.5V18H14C14.5523 18 15 18.4477 15 19C15 19.5523 14.5523 20 14 20H10C9.44772 20 9 19.5523 9 19C9 18.4477 9.44772 18 10 18H11V11.5H10C9.44772 11.5 9 11.0523 9 10.5C9 9.94772 9.44772 9.5 10 9.5H11Z" fill="currentColor"/><path d="M12 4C12.8284 4 13.5 4.67157 13.5 5.5C13.5 6.32843 12.8284 7 12 7C11.1716 7 10.5 6.32843 10.5 5.5C10.5 4.67157 11.1716 4 12 4Z" fill="currentColor"/></svg>
           <span>Spotify is locked down, so audio comes from YouTube and is re-tagged with Spotify details and cover art.</span>
         </div>
 
         <div class="row">
           <div class="seg" role="tablist" aria-label="Format">
             <button class="seg-btn is-active" data-format="mp4" role="tab" aria-selected="true">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 7C2 5.34315 3.34315 4 5 4H13C14.6569 4 16 5.34315 16 7V8.38175L19.1056 6.82896C20.4354 6.16406 22 7.13105 22 8.61782V15.3817C22 16.8685 20.4354 17.8355 19.1056 17.1706L16 15.6178V17C16 18.6569 14.6569 20 13 20H5C3.34315 20 2 18.6569 2 17V7ZM16 13.3817L20 15.3817V8.61782L16 10.6178V13.3817Z" fill="currentColor"/></svg>
               <span>MP4 video</span>
             </button>
             <button class="seg-btn" data-format="mp3" role="tab" aria-selected="false">
-              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" aria-hidden="true"><path d="M17.7087 4.73018C18.3504 4.53769 18.9961 5.01814 18.9961 5.688V12.4713C18.3888 12.1668 17.6961 11.9999 16.9961 11.9999C14.9654 11.9999 12.9961 13.404 12.9961 15.4999C12.9961 17.5959 14.9654 18.9999 16.9961 18.9999C19.0268 18.9999 20.9961 17.5959 20.9961 15.4999V5.688C20.9961 3.67841 19.0589 2.23707 17.1341 2.81452L11.1341 4.61452C9.8651 4.99521 8.99609 6.16318 8.99609 7.488V15.4713C8.38882 15.1668 7.6961 14.9999 6.99609 14.9999C4.96541 14.9999 2.99609 16.404 2.99609 18.4999C2.99609 20.5959 4.96541 21.9999 6.99609 21.9999C9.02677 21.9999 10.9961 20.5959 10.9961 18.4999V7.488C10.9961 7.04639 11.2858 6.65707 11.7087 6.53018L17.7087 4.73018Z" fill="currentColor"/></svg>
               <span>MP3 audio</span>
             </button>
           </div>
@@ -103,7 +99,7 @@
         <details class="advanced">
           <summary>
             <span>Advanced</span>
-            <svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            <svg class="chev" viewBox="0 0 24 24" width="14" height="14" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.5858 13.9999C11.3668 14.781 12.6332 14.781 13.4142 13.9999L16.7071 10.707C17.0976 10.3165 17.0976 9.68332 16.7071 9.2928C16.3166 8.90228 15.6834 8.90228 15.2929 9.2928L12 12.5857L8.70711 9.2928C8.31658 8.90228 7.68342 8.90228 7.29289 9.2928C6.90237 9.68332 6.90237 10.3165 7.29289 10.707L10.5858 13.9999Z" fill="currentColor"/></svg>
           </summary>
           <div class="advanced-grid">
             <label class="check">
@@ -135,7 +131,7 @@
 
         <button class="btn-primary" id="downloadBtn">
           <span class="btn-icon">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" aria-hidden="true"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 2H12V7C12 8.65685 13.3431 10 15 10H20V19C20 20.6569 18.6569 22 17 22H7C5.34315 22 4 20.6569 4 19V5C4 3.34315 5.34315 2 7 2ZM15.2071 17.2071L12.7071 19.7071C12.3166 20.0976 11.6834 20.0976 11.2929 19.7071L8.79289 17.2071C8.40237 16.8166 8.40237 16.1834 8.79289 15.7929C9.18342 15.4024 9.81658 15.4024 10.2071 15.7929L11 16.5858V13C11 12.4477 11.4477 12 12 12C12.5523 12 13 12.4477 13 13V16.5858L13.7929 15.7929C14.1834 15.4024 14.8166 15.4024 15.2071 15.7929C15.5976 16.1834 15.5976 16.8166 15.2071 17.2071Z" fill="currentColor"/><path d="M14 2.58579L19.4142 8H15C14.4477 8 14 7.55228 14 7V2.58579Z" fill="currentColor"/></svg>
           </span>
           <span class="btn-label">Download</span>
           <span class="btn-shortcut"><kbd>⏎</kbd></span>
@@ -159,10 +155,7 @@
       </section>
 
       <section class="empty-state" id="emptyState">
-        <div class="empty-icon">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M5 21h14"/></svg>
-        </div>
-        <p>Nothing downloaded yet. Paste a link to begin.</p>
+        <p>Nothing downloaded yet.</p>
       </section>
 
       <footer class="footer">

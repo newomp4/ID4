@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # One-time setup: builds a self-contained Python venv and grabs ffmpeg.
-# Re-running is safe — it skips work that's already done.
+# Re-running is safe, it skips work that's already done.
 
 set -euo pipefail
 cd "$(dirname "$0")"

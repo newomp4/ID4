@@ -1,10 +1,10 @@
-"""Spotify support — metadata only.
+"""Spotify support, metadata only.
 
 Spotify streams are DRM-encrypted, so we can't download audio from Spotify
 itself. Instead we:
 
   1. Read the Spotify URL and scrape the public open.spotify.com page
-     for title, artist, album, year, and cover art (no API key needed —
+     for title, artist, album, year, and cover art (no API key needed , 
      Spotify exposes this in og:* / music:* meta tags).
   2. Hand back enough info that the download pipeline can search YouTube
      for the same song and overwrite the resulting MP3's tags so it looks
