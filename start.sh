@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Launch CRYTDL. Runs setup automatically the first time.
+# Launch ID4. Runs setup automatically the first time.
 
 set -euo pipefail
 cd "$(dirname "$0")"

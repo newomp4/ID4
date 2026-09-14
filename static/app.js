@@ -1,4 +1,4 @@
-// CRYTDL frontend — vanilla JS, no framework, no build step.
+// ID4 frontend. Vanilla JS, no framework, no build step.
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -336,12 +336,12 @@ function updatePageTitle(jobs) {
     ["queued", "downloading", "processing", "searching", "tagging"].includes(j.status)
   );
   if (!active.length) {
-    document.title = "CRYTDL";
+    document.title = "ID4";
     return;
   }
   const total = active.reduce((acc, j) => acc + (j.percent || 0), 0);
   const avg = Math.round(total / active.length);
-  document.title = `${avg}% · CRYTDL`;
+  document.title = `${avg}% · ID4`;
 }
 
 // ---------------------------------------------------------------------------

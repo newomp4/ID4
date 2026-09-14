@@ -1,5 +1,5 @@
 """
-CRYTDL — a tiny, self-contained YouTube downloader.
+ID4. A tiny, self-contained YouTube downloader.
 
 Architecture
 ------------
@@ -632,11 +632,11 @@ def api_health():
 # ---------------------------------------------------------------------------
 
 def main() -> None:
-    port = int(os.environ.get("CRYTDL_PORT", "5151"))
-    host = os.environ.get("CRYTDL_HOST", "127.0.0.1")
+    port = int(os.environ.get("ID4_PORT") or os.environ.get("CRYTDL_PORT") or "5151")
+    host = os.environ.get("ID4_HOST") or os.environ.get("CRYTDL_HOST") or "127.0.0.1"
     url = f"http://{host}:{port}"
-    print(f"\n  CRYTDL → {url}\n")
-    if os.environ.get("CRYTDL_NO_BROWSER") != "1":
+    print(f"\n  ID4 → {url}\n")
+    if (os.environ.get("ID4_NO_BROWSER") or os.environ.get("CRYTDL_NO_BROWSER")) != "1":
         try:
             threading.Timer(0.8, lambda: webbrowser.open(url)).start()
         except Exception:

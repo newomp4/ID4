@@ -1,167 +1,64 @@
-# CRYTDL
+# ID4
 
-A tiny, self-contained YouTube + Spotify downloader with a clean monochrome
-UI. Paste a link, pick MP4 or MP3, hit download.
+A small YouTube downloader with a clean monochrome interface. Paste a link, pick MP4 or MP3, hit download.
 
-Everything it needs (Python packages, ffmpeg, downloaded files) lives
-inside this folder. Delete the folder and nothing remains.
+![ID4](docs/preview.png)
 
----
+Everything it needs lives inside its own folder. Delete the folder and nothing is left behind on your machine.
 
-## Quick start (macOS / Linux)
+## Getting started
+
+On macOS or Linux:
 
 ```bash
-./setup.sh     # one time — creates ./.venv and downloads ffmpeg into ./bin
-./start.sh     # launches the app and opens http://127.0.0.1:5151
+./setup.sh     # run once, sets everything up
+./start.sh     # opens the app in your browser
 ```
 
-That's it. The first run installs everything; subsequent runs just launch.
+The first run installs what it needs. After that, `./start.sh` is all you need.
 
-> **Windows:** run the equivalent commands manually:
-> ```
-> python -m venv .venv
-> .venv\Scripts\pip install -r requirements.txt
-> .venv\Scripts\python setup_ffmpeg.py
-> .venv\Scripts\python app.py
-> ```
-
----
-
-## How it works (the simple version)
-
-There are three moving parts:
-
-| Piece | Job |
-|---|---|
-| **`yt-dlp`** | The Python library that talks to YouTube. It figures out the available video/audio streams, picks the right ones for your chosen quality, and downloads them. |
-| **`ffmpeg`** | A tiny universal media tool. It glues the separate video + audio streams into a single MP4, or extracts and re-encodes the audio into MP3. |
-| **`Flask`** | A minimal Python web server. It serves the UI (HTML/CSS/JS) and exposes a small JSON API the UI talks to. |
-
-When you click **Download**, the browser POSTs your URL + settings to `/api/download`.
-Flask spawns a worker thread, that thread runs yt-dlp, and yt-dlp calls ffmpeg
-when it's time to mux video+audio or convert to MP3. While that runs, the UI
-polls `/api/jobs` every ~600ms to update the progress bar live.
-
-### Why MP4 needs ffmpeg
-
-YouTube serves video and audio as **separate streams** at higher qualities
-(this is how it can offer 1080p video with 256kbps audio without storing every
-combination). yt-dlp downloads both streams, then ffmpeg combines them into one
-playable MP4 file. That's also why the progress bar briefly says "processing"
-at the end — that's the muxing step.
-
-### Why MP3 needs ffmpeg
-
-YouTube doesn't host MP3 files at all. It serves audio as Opus or AAC. To get
-an MP3, ffmpeg has to **re-encode** the audio at the bitrate you asked for
-(128/192/320 kbps, etc.).
-
-### How Spotify works (the honest truth)
-
-Spotify's audio streams are DRM-encrypted, so we **can't** download audio
-from Spotify itself — no Spotify downloader can. Every tool you've seen do
-this is actually doing the same trick:
-
-1. Read the Spotify URL → scrape title, artist, album, year, and cover art
-   from the public `open.spotify.com` page (no API key needed; Spotify
-   exposes all of this in `<meta property="og:..." />` tags for crawlers).
-2. Search YouTube for `"<artist> <title>"` and download the top result as MP3.
-3. Wipe the YouTube tags off the resulting file and write the Spotify ones in
-   their place — including the high-resolution Spotify cover art.
-
-So the **audio** is from YouTube, but the **labeling** is from Spotify, which
-means it shows up in your music player with the right artist, album, and
-artwork. The trade-off is that the audio is whatever YouTube has — usually
-the official music video, sometimes a topic auto-upload — and not Spotify's
-master.
-
-> **Currently supported:** single track URLs (`open.spotify.com/track/...`).
-> Album and playlist URLs aren't implemented yet; they'd need the Spotify
-> Web API to enumerate tracks.
-
----
-
-## Self-contained by design
-
-Everything this project creates stays inside this folder:
+On Windows, run the same steps by hand:
 
 ```
-CRYTDL/
-├── .venv/             ← Python virtual environment (created by setup.sh)
-├── bin/ffmpeg         ← static ffmpeg binary (downloaded by setup_ffmpeg.py)
-├── downloads/         ← downloaded videos + .history.json
-├── static/            ← UI: index.html, style.css, app.js
-├── app.py             ← Flask backend
-├── spotify.py         ← Spotify URL parser + metadata scraper
-├── setup_ffmpeg.py    ← one-shot ffmpeg installer
-├── setup.sh           ← venv + deps + ffmpeg
-├── start.sh           ← launcher
-├── requirements.txt   ← Python deps (Flask, yt-dlp, mutagen)
-└── README.md
+python -m venv .venv
+.venv\Scripts\pip install -r requirements.txt
+.venv\Scripts\python setup_ffmpeg.py
+.venv\Scripts\python app.py
 ```
-
-- No system-wide Python packages installed (everything's in `.venv/`)
-- No system-wide ffmpeg installed (it's a single static binary in `./bin/`)
-- No registry entries, no Application Support files, nothing in your home dir
-
-**To uninstall completely: just `rm -rf` the folder.**
-
----
 
 ## Settings
 
 | Setting | What it does |
 |---|---|
-| **MP4 / MP3** | Pick video file or audio-only file. |
-| **Quality** | MP4: max resolution to allow (best, 4K, 2K, 1080p, 720p, 480p, 360p). MP3: bitrate (96–320 kbps). |
-| **Embed thumbnail** | Saves the video's cover image *into* the file so it shows up as artwork in players. |
-| **Embed metadata** | Writes title, uploader, upload date, etc. into the file's tags. On by default. |
-| **Embed subtitles** | (MP4 only) Pulls English subtitles if the video has them and bakes them into the file as a subtitle track. |
+| **MP4 or MP3** | A video file, or audio only. |
+| **Quality** | For MP4, the biggest size to allow. For MP3, the bitrate. |
+| **Embed thumbnail** | Saves the cover image into the file so players show artwork. |
+| **Embed metadata** | Writes the title, channel and date into the file. On by default. |
+| **Embed subtitles** | For MP4, pulls English subtitles in as a subtitle track. |
 
----
+Spotify track links also work. Spotify itself is locked down, so the audio comes from YouTube and gets labelled with the Spotify title, artist, album and cover art.
 
-## Configuration
+## Options
 
-Environment variables (optional):
+You can change these when you launch it:
 
 ```bash
-CRYTDL_PORT=5151           # change the port
-CRYTDL_HOST=127.0.0.1      # change the bind address
-CRYTDL_NO_BROWSER=1        # don't auto-open the browser on launch
+ID4_PORT=8080 ./start.sh     # use a different port
+ID4_NO_BROWSER=1 ./start.sh  # do not open a browser
 ```
 
-Example: `CRYTDL_PORT=8080 ./start.sh`
+## If a download stops working
 
----
-
-## Updating
-
-yt-dlp moves fast (YouTube changes its internals frequently). To update:
+YouTube changes things often. Updating usually fixes it:
 
 ```bash
 .venv/bin/pip install --upgrade yt-dlp
 ```
 
-If a download starts failing with a "format not available" or extractor error,
-that's almost always the fix.
+## Removing it
 
----
+Delete the folder. Nothing is installed anywhere else on your system.
 
-## Tech notes
+## A note
 
-- **No build step.** The frontend is plain HTML/CSS/JS. Open `static/app.js`
-  and edit — refresh the page, see the change. No webpack, no node_modules.
-- **No database.** Job state lives in memory; download history is a JSON file
-  in `downloads/.history.json`.
-- **Threaded downloads.** Each download runs in its own Python thread, so you
-  can queue several at once.
-- **Theme.** Dark by default. Click the moon/sun in the top right to flip.
-  Saved to `localStorage`.
-
----
-
-## Disclaimer
-
-For personal use with content you have the right to download (your own videos,
-Creative Commons, public-domain material, etc.). Respect creators and YouTube's
-terms.
+For personal use, with things you have the right to download. Please respect the people who made them.

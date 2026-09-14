@@ -25,4 +25,4 @@ echo "→ Setting up ffmpeg"
 .venv/bin/python setup_ffmpeg.py
 
 echo ""
-echo "  ✓ Setup complete. Run ./start.sh to launch CRYTDL."
+echo "  ✓ Setup complete. Run ./start.sh to launch ID4."
